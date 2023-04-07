@@ -34,6 +34,14 @@ div{
 /* ============ Etiqueta nombre ============== */
 
 #nombre{
+    font-size: 146%;
+    font-weight: bold;       
+}
+
+/* ============ Etiqueta developer ============== */
+
+#developer{
+    font-size: 125%;
     font-weight: bold;
-    margin-top: 30%;
+    margin-top: auto;
 }
