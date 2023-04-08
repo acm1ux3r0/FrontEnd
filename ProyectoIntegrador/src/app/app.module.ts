@@ -5,12 +5,11 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { LogoAPComponent } from './components/logo-ap/logo-ap.component';
-import { SocialComponent } from './components/social/social.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { AcercaDeComponent } from './components/acerca-de/acerca-de.component';
 import { ExperienciaComponent } from './components/experiencia/experiencia.component';
 import { EducacionComponent } from './components/educacion/educacion.component';
-/* Import ng-circle-progress */
+        /* <<<<<<<<<<<<<  Import ng-circle-progress >>>>>>>>>>>>>>> */
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { HysComponent } from './components/hys/hys.component';
 import { ProyectoComponent } from './components/proyecto/proyecto.component';
@@ -22,7 +21,6 @@ import { FooterComponent } from './components/footer/footer.component';
     AppComponent,
     HeaderComponent,
     LogoAPComponent,
-    SocialComponent,
     BannerComponent,
     AcercaDeComponent,
     ExperienciaComponent,
@@ -34,8 +32,8 @@ import { FooterComponent } from './components/footer/footer.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    /* // Specify ng-circle-progress as an import */
-    NgCircleProgressModule.forRoot({})
+             /*  <<<<<<<<<<<<<<< Specify ng-circle-progress as an import >>>>>>>>>>>>>> */
+    NgCircleProgressModule.forRoot({ /* Aquí se colocarían los valores por defecto */})
   ],
   providers: [],
   bootstrap: [AppComponent]

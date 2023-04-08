@@ -6,14 +6,14 @@ div{
     text-align: center;
 }
 
-/* ============ Estilo de foto de perfil ============== */
+                                /* ============ Estilo de foto de perfil ============== */
 
 @media (min-width: 576px){
     #fotodeperfil{
         position: absolute;
         width: 15%;
         border-radius: 100%;
-        box-shadow: 3px 3px 3px grey;
+        box-shadow: 4px 4px 4px blue;
         left: 3%;
         top: 600px;
     }
@@ -24,21 +24,22 @@ div{
         position: absolute;
         width: 30%;
         border-radius: 100%;
-        box-shadow: 3px 3px 3px grey;
+        box-shadow: 4px 4px 4px blue;
         left: 33%;
-        top: 630px;
+        top: 850px; /* 630 - 950*/
     }
 }
 
 
-/* ============ Etiqueta nombre ============== */
+                                /* ============ Etiqueta nombre ============== */
 
 #nombre{
-    font-size: 146%;
-    font-weight: bold;       
+    font-weight: bold;
+    margin-top: auto;
+    font-size: 125%;     
 }
 
-/* ============ Etiqueta developer ============== */
+                                /* ============ Etiqueta developer ============== */
 
 #developer{
     font-size: 125%;
