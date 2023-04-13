@@ -1,0 +1,68 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package com.portfolio.acm.Security;
+
+import com.portfolio.acm.Security.Service.UserDetailsImpl;
+import com.portfolio.acm.Security.jwt.JwtEntryPoint;
+import com.portfolio.acm.Security.jwt.JwtTokenFilter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+
+/**
+ *
+ * @author acm1ux3r0
+ */
+@Configuration
+@EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled = true) //Habilitar la opción que los métodos que nosotros digamos que tenemos que estar logueados van estar bloqueados por esta opción.
+public class MainSecurity extends WebSecurityConfigurerAdapter{
+    @Autowired
+    UserDetailsImpl userDetailsImplServicesImpl;
+    @Autowired
+    JwtEntryPoint jwtEntryPoint;
+    
+    @Bean
+    public JwtTokenFilter jwtTokenFilter(){
+        return new JwtTokenFilter();
+    }
+    
+    @Bean
+    public PasswordEncoder passwordEncoder(){
+        return new BCryptPasswordEncoder(); 
+    }
+
+    @Override
+    protected void configure(HttpSecurity http) throws Exception {
+        http.cors().and().csrf().disable().authorizeRequests().antMatchers("/auth/**").permitAll()
+                .anyRequest().authenticated().and().exceptionHandling().authenticationEntryPoint(jwtEntryPoint)
+                .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.STATELESS);
+    }
+
+    @Override
+    protected AuthenticationManager authenticationManager() throws Exception {
+        return super.authenticationManager();
+    }
+
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+
+    @Override
+    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+        auth.userDetailsService(userDetailsImplServicesImpl).passwordEncoder(passwordEncoder());
+    }    
+    
+}
