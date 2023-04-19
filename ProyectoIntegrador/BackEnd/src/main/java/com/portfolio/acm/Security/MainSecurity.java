@@ -30,7 +30,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableGlobalMethodSecurity(prePostEnabled = true) //Habilitar la opción que los métodos que nosotros digamos que tenemos que estar logueados van estar bloqueados por esta opción.
 public class MainSecurity extends WebSecurityConfigurerAdapter{
     @Autowired
-    UserDetailsImpl userDetailsImplServicesImpl;
+    UserDetailsImpl userDetailsServicesImpl;
     @Autowired
     JwtEntryPoint jwtEntryPoint;
     
@@ -43,7 +43,7 @@ public class MainSecurity extends WebSecurityConfigurerAdapter{
     public PasswordEncoder passwordEncoder(){
         return new BCryptPasswordEncoder(); 
     }
-
+    
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.cors().and().csrf().disable().authorizeRequests().antMatchers("/auth/**").permitAll()
@@ -65,7 +65,7 @@ public class MainSecurity extends WebSecurityConfigurerAdapter{
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsImplServicesImpl).passwordEncoder(passwordEncoder());
+        auth.userDetailsService(userDetailsServicesImpl).passwordEncoder(passwordEncoder());
     }    
     
 }
