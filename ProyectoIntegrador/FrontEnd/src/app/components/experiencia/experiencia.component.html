@@ -1,29 +1,24 @@
-    <div class="row">
-        <h1> Experiencia Laboral</h1>
-        <div class ="col-lg-1"></div>
-        <div class ="col-lg-11">
-            <ul>
-                <li>
-                    <h1>Trabajo 1</h1> - <h3>(years)</h3>
-                </li>
-                <p>
-                    Acá se describe la labor desempeñada
-                </p>
-            </ul>
-            <ul>
-                <li>
-                    <h1>Trabajo 2</h1> - <h3>(years)</h3>
-                </li>
-                <p>
-                    Acá se describe la labor desempeñada
-                </p>
-            </ul>
-            <ul>
-                <li>
-                    <h1>Trabajo 3</h1> - <h3>(years)</h3>
-                </li>
-                <p>
-                    Acá se describe la labor desempeñada
-                </p>
-            </ul>
-        </div>
+<div class="row">
+    <h1>Experiencia Laboral.</h1> 
+    <div class="col-lg-2">
+        <button type="button" class="btn btn-dange" routerLink="/nuevaexp" *ngIf="isLogged">
+            Nueva Experiencia Laboral   
+        </button>
+    </div>
+    <div class="col lg 1"> </div>
+    
+    <div class="col-lg-11">
+        <table class="table">
+            
+            <tbody>
+                <tr *ngFor="let Experiencia of expe">
+                    <td> <h2> {{Experiencia.nombreE}} </h2> </td>
+                    <td> {{Experiencia.descripcionE}}</td>
+                    <td> EDITAR </td>
+                    <td> BORRAR </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</div>
