@@ -13,6 +13,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * @author acm1ux3r0
  */
 
+
 public interface RHys extends JpaRepository<Hys, Integer> {
     
     //Solamente se mencionan (NO se desarrollan los métodos)

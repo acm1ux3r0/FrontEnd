@@ -59,7 +59,5 @@ public class JwtDto {
 
     public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
         this.authorities = authorities;
-    }
-    
-    
+    }    
 }

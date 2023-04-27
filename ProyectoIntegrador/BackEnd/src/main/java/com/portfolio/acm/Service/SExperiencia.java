@@ -1,4 +1,4 @@
-/*
+    /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
@@ -12,14 +12,18 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 /**
  *
  * @author acm1ux3r0
  */
 
+
 @Service
 @Transactional //Va a tratar de mantener la Persistencia: lo que tengamos acá también lo mantendrá en la DB.
+
 public class SExperiencia {
+    
     @Autowired //Inyectar el reposotirio a continucación: RExperiencia.
     RExperiencia rExperiencia;
     
@@ -50,6 +54,7 @@ public class SExperiencia {
     public boolean existsByNombreE(String nombreE){
         return rExperiencia.existsByNombreE(nombreE);
     }
+    
 }
     
 

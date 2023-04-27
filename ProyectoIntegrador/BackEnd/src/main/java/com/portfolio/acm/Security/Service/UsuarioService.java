@@ -16,8 +16,11 @@ import org.springframework.stereotype.Service;
  * @author acm1ux3r0
  */
 
+
 @Service
-@Transactional //Nos asegura que vamos a tener los mismos datos de la base de datos ====> "PERSISTENCIA"
+@Transactional /*Nos asegura que vamos a tener los mismos datos que tengamos acá con 
+        lo de la base de datos  ====> "PERSISTENCIA" */ 
+
 
 public class UsuarioService {
     @Autowired
@@ -27,13 +30,13 @@ public class UsuarioService {
         return iusuarioRepository.findByNombreUsuario(nombreUsuario);
     }
     
-    //Para checar si el nombre del usuario existe.
+        //Para checar si el nombre del usuario existe.
     
     public boolean existsByNombreUsuario(String nombreUsuario){
         return iusuarioRepository.existsByNombreUsuario(nombreUsuario);
     }
     
-    //Para checar si el email existe.
+        //Para checar si el email existe.
     
     public boolean existsByEmail(String email){
         return iusuarioRepository.existsByEmail(email);

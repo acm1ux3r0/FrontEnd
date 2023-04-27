@@ -15,6 +15,9 @@ import org.springframework.security.core.userdetails.UserDetails;
  *
  * @author acm1ux3r0
  */
+
+  //CLASE ENCARGADA DE TENER TODA LA SEGURIDAD
+
 public class UsuarioPrincipal implements UserDetails {
 
     private String nombre;
@@ -84,5 +87,4 @@ public class UsuarioPrincipal implements UserDetails {
     public boolean isEnabled() {
         return true;
     }
-
 }

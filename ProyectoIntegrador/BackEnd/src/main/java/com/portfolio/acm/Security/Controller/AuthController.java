@@ -36,26 +36,34 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author acm1ux3r0
  */
+
+//ES EL QUE SE VA A TERMINAR COMUNICANDO CON EL FRONT.
+
 @RestController
 @RequestMapping("/auth")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 
 public class AuthController {
-
+    
+   // INYECCIONES
     @Autowired
     PasswordEncoder passwordEncoder;
+    
     @Autowired
     AuthenticationManager authenticationManager;
+    
     @Autowired
     UsuarioService usuarioService;
+    
     @Autowired
     RolService rolService;
+    
     @Autowired
     JwtProvider jwtProvider;
-
-    @PostMapping("/nuevo") //Para indicar la ruta.
-
+    
     //CREAR UN USUARIO NUEVO
+    @PostMapping("/nuevo") //Para indicar la ruta.
+    
     public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity(new Mensaje("Email inválido o campo equivocado"), HttpStatus.BAD_REQUEST);
@@ -83,24 +91,25 @@ public class AuthController {
 
         return new ResponseEntity(new Mensaje("Usuario guardado"), HttpStatus.CREATED);
     }
-    
+
     @PostMapping("/login") //La ruta (Endpoint) al que se accederá
     public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity(new Mensaje("Campos mal puestos"), HttpStatus.BAD_REQUEST);
         }
+
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginUsuario.getNombreUsuario(),
                         loginUsuario.getPassword()));
-        
+
         SecurityContextHolder.getContext().setAuthentication(authentication);
-        
+
         String jwt = jwtProvider.generateToken(authentication);
-        
+
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
-        
+
         JwtDto jwtDto = new JwtDto(jwt, userDetails.getUsername(), userDetails.getAuthorities());
-        
+
         return new ResponseEntity(jwtDto, HttpStatus.OK);
     }
 

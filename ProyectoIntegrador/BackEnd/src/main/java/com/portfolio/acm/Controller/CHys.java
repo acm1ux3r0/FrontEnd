@@ -14,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,7 +30,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/hys")
+@RequestMapping("/skill")
 public class CHys {
     @Autowired //Para inyectar el servicio.
     SHys shys;
@@ -42,7 +43,7 @@ public class CHys {
     }
     
     //Para traer los datos
-    @GetMapping("/detail/{id}") //para que traiga los detalles de ese ID
+    @GetMapping("/detail/{id}/") //para que traiga los detalles de ese ID
     public ResponseEntity<Hys> getById(@PathVariable("id") int id) {
         if (!shys.existsById(id)) {
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.NOT_FOUND);
@@ -52,7 +53,7 @@ public class CHys {
     }
     
     //Para crear una habilidad.
-    @PostMapping("/create")
+    @PostMapping("/create/")
     public ResponseEntity<?> create(@RequestBody dtoHys dtohys){
         if(StringUtils.isBlank(dtohys.getNombre()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
@@ -68,7 +69,7 @@ public class CHys {
         
     }
     
-    @PutMapping("/update/{id}")
+    @PutMapping("/update/{id}/")
     public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoHys dtohys){
         //Validación si (NO) existe el ID.
         if(!shys.existsById(id))
@@ -91,6 +92,7 @@ public class CHys {
     } 
     
     //BORRA por ID
+    @DeleteMapping("/delete/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") int id){
         //Validación si (NO) existe el ID.
         if(!shys.existsById(id))

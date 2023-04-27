@@ -17,8 +17,10 @@ import org.springframework.stereotype.Service;
  * @author acm1ux3r0
  */
 
+
 @Transactional //Para que haya persistencia de datos tanto en el back como en el front.
 @Service
+
 public class SHys {
     
     @Autowired //Para inyectar el servicio 

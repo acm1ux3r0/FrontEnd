@@ -18,13 +18,16 @@ import javax.validation.constraints.NotNull;
  * @author acm1ux3r0
  */
 
+
 @Entity
 public class Rol {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
+    
     @NotNull
-    @Enumerated(EnumType.STRING)
+    @Enumerated(EnumType.STRING) //Annotation que define los valores que ingresamos.
     private RolNombre rolNombre;
     
     //<<<<<<<<<<<   CONSTRUCTOR >>>>>>>>>>>>
@@ -53,5 +56,5 @@ public class Rol {
     public void setRolNombre(RolNombre rolNombre) {
         this.rolNombre = rolNombre;
     }
-    
+        
 }
