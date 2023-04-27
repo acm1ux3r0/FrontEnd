@@ -109,7 +109,7 @@ public class PersonaController {
 */
 @RestController
 @RequestMapping("/personas")
-@CrossOrigin(origins = {"https://mgbfrontend.web.app","http://localhost:4200"})
+@CrossOrigin(origins = "http://localhost:4200")
 public class PersonaController {
     @Autowired
     ImpPersonaService personaService;
