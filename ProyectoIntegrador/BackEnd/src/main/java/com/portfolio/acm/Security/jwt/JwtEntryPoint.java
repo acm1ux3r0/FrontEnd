@@ -19,8 +19,8 @@ import org.springframework.stereotype.Component;
  * @author acm1ux3r0
  */
 
-
 //<<<<<<<   CLASE PARA CHECAR SI HAY UN TOKEN VÁLIDO.   >>>>>>>>>>
+
 
 @Component
 
