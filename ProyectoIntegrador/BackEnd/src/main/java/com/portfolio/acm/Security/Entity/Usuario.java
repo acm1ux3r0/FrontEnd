@@ -22,28 +22,39 @@ import javax.validation.constraints.NotNull;
  * @author acm1ux3r0
  */
 
+    //ESTA CLASE LO QUE VA HACER ES ACCEDER DIRECTAMENTE A LA DB.
+
 @Entity
 public class Usuario {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    
+    @Id //Marcamos la columna como "ID"
+    @GeneratedValue(strategy = GenerationType.IDENTITY) //Para que genere el valor automáticamente.
     private int id;
+    
     @NotNull
     private String nombre;
+    
     @NotNull
-    @Column(unique = true)
+    @Column(unique = true) // Le indicamos que la columna sea única.
     private String nombreUsuario;
+    
     @NotNull
     private String email;
+    
     @NotNull
     private String password;
+    
+    /*Hay que relacionar la tabla Rol con la tabla Usuario; una Relación de "Muchos a Muchos"; en memoria
+        se crea una columna virtual en la q se van a relacionar las mencionadas tablas */
+    
     @ManyToMany(fetch = FetchType.EAGER )
     @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name="usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
-   private Set<Rol> roles = new HashSet<>();
+     private Set<Rol> roles = new HashSet<>(); /*Se crea una tabla que se llama "usuario_rol" con las columnas 
+        "usuario_id" y "rol_id" */
     
     //<<<<<<<<<<        CONSTRUCTORES       >>>>>>>>>>
 
-    public Usuario() {
-    }
+    public Usuario() { }
 
     public Usuario(String nombre, String nombreUsuario, String email, String password) {
         this.nombre = nombre;

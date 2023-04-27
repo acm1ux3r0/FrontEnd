@@ -2,13 +2,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
  */
-package com.portfolio.acm.Security.Repository;
+package com.portfolio.acm.Repository;
 
-import com.portfolio.acm.Security.Entity.Rol;
-import com.portfolio.acm.Security.Enums.RolNombre;
+import com.portfolio.acm.Entity.Hys;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.stereotype.Repository;
 
 /**
  *
@@ -16,8 +14,10 @@ import org.springframework.stereotype.Repository;
  */
 
 
-@Repository
-public interface iRolRepository extends JpaRepository <Rol, Integer> {
-    Optional<Rol> findByRolNombre(RolNombre rolNombre);
+public interface RHys extends JpaRepository<Hys, Integer> {
     
+    //Solamente se mencionan (NO se desarrollan los métodos)
+    
+    Optional<Hys> findByNombre(String nombre); 
+    public boolean existsByNombre(String nombre); 
 }

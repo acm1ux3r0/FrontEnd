@@ -17,15 +17,20 @@ import org.springframework.stereotype.Service;
  * @author acm1ux3r0
  */
 
+
 @Service
-@Transactional //Nos asegura que vamos a tener los mismos datos de la base de datos ====> "PERSISTENCIA"
+@Transactional /*Nos asegura que vamos a tener los mismos datos que tengamos acá con 
+        lo de la base de datos  ====> "PERSISTENCIA" */
+
 public class RolService {
+    
     @Autowired
     iRolRepository irolRepository;
     
     public Optional<Rol> getByRolNombre(RolNombre rolnombre){
         return irolRepository.findByRolNombre(rolnombre);
     }
+    
     
     public void save (Rol rol){
         irolRepository.save(rol);

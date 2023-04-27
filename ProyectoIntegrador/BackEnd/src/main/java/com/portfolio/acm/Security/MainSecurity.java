@@ -25,9 +25,12 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
  *
  * @author acm1ux3r0
  */
+
+            /* CLASE QUE VA A CONTROLA TODO EL WEB TOKEN*/
 @Configuration
 @EnableWebSecurity
-@EnableGlobalMethodSecurity(prePostEnabled = true) //Habilitar la opción que los métodos que nosotros digamos que tenemos que estar logueados van estar bloqueados por esta opción.
+@EnableGlobalMethodSecurity(prePostEnabled = true) /* Habilitar la opción que, los métodos que nosotros 
+    digamos que tenemos que estar logueados, van estar bloqueados por esta opción previamente. */
 public class MainSecurity extends WebSecurityConfigurerAdapter{
     @Autowired
     UserDetailsImpl userDetailsServicesImpl;

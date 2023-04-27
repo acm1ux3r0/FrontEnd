@@ -32,7 +32,7 @@ export class TokenService {
   }
 
   public setAuthorities(authorities: string[]): void {
-    window.localStorage.removeItem('AUTHORITIES_KEY');
+    window.sessionStorage.removeItem('AUTHORITIES_KEY');
     window.sessionStorage.setItem('AUTHORITIES_KEY', JSON.stringify(authorities));  
   }
 
