@@ -20,7 +20,7 @@ public class NuevoUsuario {
     private String password;
     private Set<String> roles = new HashSet<>(); 
     
-                         //GETTERS & SETTERS
+    //GETTERS & SETTERS
 
     public String getNombre() {
         return nombre;

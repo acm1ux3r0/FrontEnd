@@ -5,36 +5,36 @@
  */
 package com.portfolio.acm.Controller;
 
+import com.portfolio.acm.Dto.dtoPersona;
 import com.portfolio.acm.Entity.Persona;
-import com.portfolio.acm.Interface.IPersonaService;
+import com.portfolio.acm.Security.Controller.Mensaje;
+import com.portfolio.acm.Service.ImpPersonaService;
 import java.util.List;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
  * @author acm1ux3r0
  */
-
+/*
 @RestController
 @RequestMapping("/personas")
-@CrossOrigin(origins = "http://localhost:4200") //Para resolver errores de "CORS"
+@CrossOrigin(origins = "http://localhost:4200")
 
 public class PersonaController {
       
     @Autowired
-    IPersonaService ipersonaService; /* El controlador llama al servicio. Se llama a la interface porque
-        la misma llama al servicio  */
+    IPersonaService ipersonaService;
     
     
     @GetMapping("personas/traer/")//Lo podrá hacer tanto usuario como admin.
@@ -106,7 +106,7 @@ public class PersonaController {
     }
 }
 
-/* <<<<<<<<<<<<<<<<<<   MATIAS  >>>>>>>>>>>>>>>>>>>>>>>>>>>
+*/
 @RestController
 @RequestMapping("/personas")
 @CrossOrigin(origins = "http://localhost:4200")
@@ -155,4 +155,4 @@ public class PersonaController {
         return new ResponseEntity(new Mensaje("Persona actualizada"), HttpStatus.OK);
     }
    
-} */
+}
