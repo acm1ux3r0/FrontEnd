@@ -9,9 +9,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-
-
-
 /**
  *
  * @author acm1ux3r0
@@ -35,7 +32,7 @@ public class hys {
         this.porcentaje = porcentaje;
     }
     
- //<<<<<<<<<<<<<     GETTERS & SETTERS    >>>>>>>>>>>>>>>>>>>
+ //     <<<<<<<<<<<<<     GETTERS & SETTERS    >>>>>>>>>>>>>>>>>>>
 
     public int getId() {
         return id;

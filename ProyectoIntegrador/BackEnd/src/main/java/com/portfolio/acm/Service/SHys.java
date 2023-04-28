@@ -24,6 +24,8 @@ public class Shys {
     @Autowired
     Rhys rhys;
     
+    //      <<<<<<<<<<<<<   Métodos    >>>>>>>>>>>>>>>>   
+    
     public List<hys> list(){
         return rhys.findAll(); //Que nos busque todos.
     }

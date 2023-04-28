@@ -6,8 +6,6 @@ package com.portfolio.acm.Controller;
 
 import com.portfolio.acm.Dto.dtoHys;
 
-import com.portfolio.acm.Entity.Hys;
-import com.portfolio.acm.Service.SHys;
 import com.portfolio.acm.Entity.hys;
 import com.portfolio.acm.Security.Controller.Mensaje;
 import com.portfolio.acm.Service.Shys;
@@ -34,26 +32,27 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
-@RequestMapping("/skill")
+@RequestMapping("/hys")
+
 public class CHys {
     @Autowired //Para inyectar el servicio.
-    SHys shys;
+    Shys shys;
     
     //Como es parecido al de Experiencia se copia el de CExperiencia.java
     @GetMapping("/lista")
-    public ResponseEntity<List<Hys>> list(){
-        List<Hys> list = shys.list();
+    public ResponseEntity<List<hys>> list(){
+        List<hys> list = shys.list();
         return new ResponseEntity(list, HttpStatus.OK);
     }
     
     //Para traer los datos
     @GetMapping("/detail/{id}/") //para que traiga los detalles de ese ID
-    public ResponseEntity<Hys> getById(@PathVariable("id") int id) {
+    public ResponseEntity<hys> getById(@PathVariable("id") int id) {
         if (!shys.existsById(id)) {
             return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.NOT_FOUND);
         }
-        Hys hys = shys.getOne(id).get();/* Hys es la entidad (tipo) de la variable hys. */
-        return new ResponseEntity(hys, HttpStatus.OK);
+        hys hYs = shys.getOne(id).get();/* Hys es la entidad (tipo) de la variable hys. */
+        return new ResponseEntity(hYs, HttpStatus.OK);
     }
     
     //Para crear una habilidad.
@@ -66,8 +65,8 @@ public class CHys {
         /*La siguiente línea sería: la Entidad Hys (tipo)  creamos una variable hys; creamos un
         new objeto hys y le pasamos por parámetro el nombre y porcentaje. Luego volvemos al Service (shys)
         y traemos el método "save"*/  
-        Hys hys = new Hys(dtohys.getNombre(), dtohys.getPorcentaje());
-        shys.save(hys);
+        hys hYs  = new hys(dtohys.getNombre(), dtohys.getPorcentaje());
+        shys.save(hYs );
         
         return new ResponseEntity(new Mensaje("Experiencia agregada"), HttpStatus.OK);
         
@@ -87,11 +86,11 @@ public class CHys {
         if (StringUtils.isBlank(dtohys.getNombre()))
             return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
         
-        Hys hys = shys.getOne(id).get();
-        hys.setNombre(dtohys.getNombre());
-        hys.setPorcentaje(dtohys.getPorcentaje());
+        hys hYs  = shys.getOne(id).get();
+        hYs.setNombre(dtohys.getNombre());
+        hYs.setPorcentaje(dtohys.getPorcentaje());
         
-        shys.save(hys);
+        shys.save(hYs);
         return new ResponseEntity(new Mensaje("La Skill ha sido actualizada"), HttpStatus.OK);
     } 
     

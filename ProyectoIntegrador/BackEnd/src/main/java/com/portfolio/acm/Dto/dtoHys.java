@@ -17,14 +17,11 @@ public class dtoHys {
     
     @NotBlank //Para indicar que no puede estar vacío
     private String nombre;
+    
     @NotBlank //Para indicar que no puede estar vacío
     private int porcentaje;
     
-
-    
-
-
-//<<<<<<<<<<<       Constructores     >>>>>>>>>>>>>>>>
+    //  <<<<<<<<<<<       Constructores     >>>>>>>>>>>>>>>>
 
     public dtoHys() {
     }
@@ -34,9 +31,8 @@ public class dtoHys {
         this.porcentaje = porcentaje;
     }
 
-
     
-//<<<<<<<<<<<       Getters & Setters      >>>>>>>>>>>>>
+    //<<<<<<<<<<<       Getters & Setters      >>>>>>>>>>>>>
 
     
     public String getNombre() {
