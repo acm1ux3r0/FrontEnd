@@ -4,7 +4,7 @@
  */
 package com.portfolio.acm.Repository;
 
-import com.portfolio.acm.Entity.hys;
+import com.portfolio.acm.Entity.Hys;
 import java.util.Optional;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -14,9 +14,9 @@ import org.springframework.data.jpa.repository.JpaRepository;
  */
 
 
-public interface Rhys extends JpaRepository<hys, Integer>{
+public interface Rhys extends JpaRepository<Hys, Integer>{
     //Los métodos solamente se mencionan; no se desarrolan aquí.
-    Optional<hys> findByNombre(String nombre);
+    Optional<Hys> findByNombre(String nombre);
     public boolean existsByNombre(String nombre);
     
 }

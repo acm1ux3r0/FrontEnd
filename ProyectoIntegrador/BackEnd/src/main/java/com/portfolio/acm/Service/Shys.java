@@ -4,7 +4,7 @@
  */
 package com.portfolio.acm.Service;
 
-import com.portfolio.acm.Entity.hys;
+import com.portfolio.acm.Entity.Hys;
 import com.portfolio.acm.Repository.Rhys;
 import java.util.List;
 import java.util.Optional;
@@ -19,26 +19,26 @@ import org.springframework.stereotype.Service;
 
 @Transactional
 @Service
-public class Shys {
+public class SHys {
     
     @Autowired
     Rhys rhys;
     
     //      <<<<<<<<<<<<<   Métodos    >>>>>>>>>>>>>>>>   
     
-    public List<hys> list(){
+    public List<Hys> list(){
         return rhys.findAll(); //Que nos busque todos.
     }
     
-    public Optional<hys> getOne(int id){
+    public Optional<Hys> getOne(int id){
         return rhys.findById(id); //Que lo busque por ID
     }
     
-    public Optional<hys> getByNombre(String nombre){
+    public Optional<Hys> getByNombre(String nombre){
         return rhys.findByNombre(nombre); //Busqueda por nombre.(.findByName)
     }
     
-    public void save(hys skill){
+    public void save(Hys skill){
         rhys.save(skill); 
     }
     
