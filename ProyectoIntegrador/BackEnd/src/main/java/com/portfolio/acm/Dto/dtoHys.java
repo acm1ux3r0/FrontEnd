@@ -13,6 +13,7 @@ import javax.validation.constraints.NotBlank;
 
 
 public class dtoHys {
+<<<<<<< Updated upstream
     
     @NotBlank //Para indicar que no puede estar vacío
     private String nombre;
@@ -21,6 +22,14 @@ public class dtoHys {
     
     //<<<<<<<<<<<<< Constructores   >>>>>>>>>>>>>>>>>>>>>>
     
+=======
+    @NotBlank
+    private String nombre;
+    @NotBlank
+    private int porcentaje;
+
+//<<<<<<<<<<<       Constructores     >>>>>>>>>>>>>>>>
+>>>>>>> Stashed changes
     public dtoHys() {
     }
 
@@ -29,7 +38,11 @@ public class dtoHys {
         this.porcentaje = porcentaje;
     }
 
+<<<<<<< Updated upstream
     //<<<<<<<<<<<<  GETTERS & SETTERS   >>>>>>>>>>>>>>>>>>
+=======
+//<<<<<<<<<<<       Getters & Setters      >>>>>>>>>>>>>
+>>>>>>> Stashed changes
     
     public String getNombre() {
         return nombre;

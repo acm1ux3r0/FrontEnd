@@ -5,9 +5,15 @@
 package com.portfolio.acm.Controller;
 
 import com.portfolio.acm.Dto.dtoHys;
+<<<<<<< Updated upstream
 import com.portfolio.acm.Entity.Hys;
 import com.portfolio.acm.Security.Controller.Mensaje;
 import com.portfolio.acm.Service.SHys;
+=======
+import com.portfolio.acm.Entity.hys;
+import com.portfolio.acm.Security.Controller.Mensaje;
+import com.portfolio.acm.Service.Shys;
+>>>>>>> Stashed changes
 import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
  *
  * @author acm1ux3r0
  */
+<<<<<<< Updated upstream
 
 @RestController
 @CrossOrigin(origins = "http://localhost:4200")
@@ -103,4 +110,85 @@ public class CHys {
         return new ResponseEntity(new Mensaje("Experiencia eliminada"),HttpStatus.OK);
     }
     
+=======
+@RestController
+@CrossOrigin(origins = "http://localhost:4200")
+@RequestMapping("/hys")
+public class CHys {
+
+    @Autowired ////Para inyectar el servicio
+    Shys shys;
+
+    // Se toma tal cual el de Experiencia (CExperiencia.java) con las modificaciones correspondientes.
+    @GetMapping("/lista")
+    public ResponseEntity<List<hys>> list() {
+        List<hys> list = shys.list();
+        return new ResponseEntity(list, HttpStatus.OK);
+    }
+
+    @GetMapping("/detail/{id}") // Para que traiga el detalle deL ID
+    public ResponseEntity<hys> getById(@PathVariable("id") int id) {
+        if (!shys.existsById(id)) {
+            return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.NOT_FOUND);
+        }
+        hys hYs = shys.getOne(id).get();// hys: llama a la Entidad - hYs es variable del tipo hys.
+
+        return new ResponseEntity(hYs, HttpStatus.OK);
+    }
+
+    //BORRAR
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<?> delete(@PathVariable("id") int id) {
+        if (!shys.existsById(id)) {
+            return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.NOT_FOUND);
+        }
+        shys.delete(id);
+        return new ResponseEntity(new Mensaje("Skill eliminado"), HttpStatus.OK);
+    }
+
+    // Para crear una habilidad.
+    @PostMapping("/create")
+    public ResponseEntity<?> create(@RequestBody dtoHys dtohys) {
+        if (StringUtils.isBlank(dtohys.getNombre())) {
+            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
+        if (shys.existsByNombre(dtohys.getNombre())) {
+            return new ResponseEntity(new Mensaje("El nombre de la skill ya existe"), HttpStatus.BAD_REQUEST);
+        }
+        /* La siguiente linea haría lo siguiente: creamos un "new" objeto del tipo hYs y le pasamos por parámetro
+        el nombre y el porcentaje. Una vez hecho eso se vuelve al service (syhs) y se trae el método
+        guardar (save) en la Base de Datos */
+        hys hYs = new hys(dtohys.getNombre(), dtohys.getPorcentaje());
+        shys.save(hYs);
+
+        return new ResponseEntity(new Mensaje("Skill agregada"), HttpStatus.OK);
+    }
+
+    //Actualización.
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> update(@PathVariable("id") int id, @RequestBody dtoHys dtohys) {
+        //Validación si existe el ID.
+        if (!shys.existsById(id)) {
+            return new ResponseEntity(new Mensaje("El ID no existe"), HttpStatus.BAD_REQUEST);
+        }
+
+        //Comparando nombres de skills.
+        if (shys.existsByNombre(dtohys.getNombre()) && shys.getByNombre(dtohys.getNombre()).get()
+                .getId() != id) {
+            return new ResponseEntity(new Mensaje("El nombre de skill ya existe"), HttpStatus.BAD_REQUEST);
+        }
+
+        //Exige que no puede estar vacío el campo.
+        if (StringUtils.isBlank(dtohys.getNombre())) {
+            return new ResponseEntity(new Mensaje("El nombre es obligatorio"), HttpStatus.BAD_REQUEST);
+        }
+
+        hys hYs = shys.getOne(id).get();
+        hYs.setNombre(dtohys.getNombre());
+        hYs.setPorcentaje(dtohys.getPorcentaje());
+
+        shys.save(hYs);
+        return new ResponseEntity(new Mensaje("La Skill ha sido actualizada"), HttpStatus.OK);
+    }
+>>>>>>> Stashed changes
 }
