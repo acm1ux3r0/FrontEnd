@@ -21,6 +21,7 @@ import org.springframework.stereotype.Service;
 @Service
 @Transactional /*Nos asegura que vamos a tener los mismos datos que tengamos acá con 
         lo de la base de datos  ====> "PERSISTENCIA" */
+
 public class RolService {
     
     @Autowired

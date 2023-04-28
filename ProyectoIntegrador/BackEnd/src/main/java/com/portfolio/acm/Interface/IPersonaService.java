@@ -14,7 +14,6 @@ import java.util.List;
  */
 
 public interface IPersonaService {
-    
     //Para traer una lista de Personas.
     public List<Persona> getPersona();
     

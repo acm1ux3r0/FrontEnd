@@ -37,7 +37,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author acm1ux3r0
  */
 
-        //ES EL QUE SE VA A TERMINAR COMUNICANDO CON EL FRONT.
+//ES EL QUE SE VA A TERMINAR COMUNICANDO CON EL FRONT.
 
 @RestController
 @RequestMapping("/auth")
@@ -92,7 +92,7 @@ public class AuthController {
         return new ResponseEntity(new Mensaje("Usuario guardado"), HttpStatus.CREATED);
     }
 
-    @PostMapping("/login") //La ruta (Endpoint) al que se accederá.
+    @PostMapping("/login") //La ruta (Endpoint) al que se accederá
     public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return new ResponseEntity(new Mensaje("Campos mal puestos"), HttpStatus.BAD_REQUEST);
