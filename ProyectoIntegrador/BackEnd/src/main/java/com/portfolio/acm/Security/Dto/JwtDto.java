@@ -7,7 +7,6 @@ package com.portfolio.acm.Security.Dto;
 import java.util.Collection;
 import org.springframework.security.core.GrantedAuthority;
 
-
 /**
  *
  * @author acm1ux3r0
@@ -20,7 +19,7 @@ public class JwtDto {
     private String nombreUsuario;
     private Collection<? extends GrantedAuthority> authorities;
     
-                        // CONSTRUCTOR
+    // CONSTRUCTOR
 
     public JwtDto(String token, String nombreUsuario, Collection<? extends GrantedAuthority> authorities) {
         this.token = token;
@@ -28,7 +27,7 @@ public class JwtDto {
         this.authorities = authorities;
     }
     
-                     // GETTERS & SETTERS.
+    // GETTERS & SETTERS.
 
     public String getToken() {
         return token;

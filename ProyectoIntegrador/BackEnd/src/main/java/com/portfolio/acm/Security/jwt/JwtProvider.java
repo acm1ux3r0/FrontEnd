@@ -23,6 +23,8 @@ import org.springframework.stereotype.Component;
  * @author acm1ux3r0
  */
 
+
+
 // CLASE QUE GENERA EL TOKEN con métodos de validación para verificar si está bien armado.
 
 @Component
@@ -34,7 +36,7 @@ public class JwtProvider {
     
     @Value("${jwt.expiration}") //Las va a traer de "application.properties"
     private int expiration;
-        
+    
 
     public String generateToken(Authentication authentication){
         UsuarioPrincipal usuarioPrincipal = (UsuarioPrincipal) authentication.getPrincipal();
@@ -48,7 +50,8 @@ public class JwtProvider {
     public String getNombreUsuarioFromToken(String token){
         return Jwts.parser().setSigningKey(secret).parseClaimsJws(token).getBody().getSubject();
     }
-            
+        
+    
     public boolean validateToken(String token){
         try{
             Jwts.parser().setSigningKey(secret).parseClaimsJws(token);

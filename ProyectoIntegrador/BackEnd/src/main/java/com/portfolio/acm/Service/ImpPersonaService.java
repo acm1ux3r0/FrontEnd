@@ -6,9 +6,9 @@
 package com.portfolio.acm.Service;
 
 import com.portfolio.acm.Entity.Persona;
-import com.portfolio.acm.Interface.IPersonaService;
 import com.portfolio.acm.Repository.IPersonaRepository;
 import java.util.List;
+import java.util.Optional;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,13 +20,13 @@ import org.springframework.stereotype.Service;
 
 @Service
 @Transactional
- 
-public class ImpPersonaService implements IPersonaService {
+
+public class ImpPersonaService {
 
     @Autowired
     IPersonaRepository ipersonaRepository;
 
- /*     public List<Persona> list() {
+    public List<Persona> list() {
         return ipersonaRepository.findAll();
     }
 
@@ -52,27 +52,5 @@ public class ImpPersonaService implements IPersonaService {
 
     public boolean existsByNombre(String nombre) {
         return ipersonaRepository.existsByNombre(nombre);
-    } */
-
-    @Override
-    public List<Persona> getPersona() {
-        List<Persona> persona = ipersonaRepository.findAll();
-        return persona;
-    }
-
-    @Override
-    public void savePersona(Persona persona) {
-        ipersonaRepository.save(persona);//(this) 
-    }
-
-    @Override
-    public void deletePersona(Long id) {
-        ipersonaRepository.deleteById(id);
-    }
-
-    @Override
-    public Persona findPersona(Long id) {
-        Persona persona = ipersonaRepository.findById(id).orElse(null); //orElse para el caso en que no lo encuentre al ID.
-        return persona;
     }
 }

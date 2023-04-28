@@ -22,10 +22,10 @@ import lombok.Setter;
 @Getter @Setter
 @Entity
 public class Persona {
-    @Id // Le indicamos que el primer campo va a ser una PRIMARY KEY
-    @GeneratedValue (strategy = GenerationType.IDENTITY)// Le indicamos que el segundo campo va a ser autogenerado.
-    private Long id;
-
+    @Id
+    @GeneratedValue (strategy = GenerationType.IDENTITY)
+    private int id;
+    
     @NotNull
     @Size(min = 1, max = 50, message = "No cumple con la longitud requerida.")
     private String nombre;
@@ -34,8 +34,8 @@ public class Persona {
     @Size(min = 1, max = 50, message = "No cumple con la longitud requerida.")
     private String apellido;
     
-   // @NotNull
-    //private String descripcion;
+    @NotNull
+    private String descripcion;
     
     @Size(min = 1, max = 50, message = "No cumple con la longitud requerida.")
     private String img;
@@ -47,8 +47,8 @@ public class Persona {
     public Persona(String nombre, String apellido, String descripcion, String img) {
         this.nombre = nombre;
         this.apellido = apellido;
-        //this.descripcion = descripcion;
+        this.descripcion = descripcion;
         this.img = img;
     }
-        //Forma abreviada de Getters y Setters es colocarlos en forma de @Anotation.
+    //Forma abreviada de Getters y Setters es colocarlos en forma de @Anotation.
 }

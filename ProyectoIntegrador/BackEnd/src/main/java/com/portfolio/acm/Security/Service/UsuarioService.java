@@ -16,9 +16,11 @@ import org.springframework.stereotype.Service;
  * @author acm1ux3r0
  */
 
+
 @Service
 @Transactional /*Nos asegura que vamos a tener los mismos datos que tengamos acá con 
         lo de la base de datos  ====> "PERSISTENCIA" */ 
+
 
 public class UsuarioService {
     @Autowired
