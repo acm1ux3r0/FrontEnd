@@ -24,7 +24,7 @@ import org.springframework.web.filter.OncePerRequestFilter;
  */
 
  /* Usa la clase del PROVIDER para validar el TOKEN otra vez y se ejecutará cada vez que hagamos algo 
-    (Por Ej. si editamos algo */
+    (Por Ej. si editamos algo va a pedir que hagamos login) */
 
 public class JwtTokenFilter extends OncePerRequestFilter {
 
@@ -35,9 +35,8 @@ public class JwtTokenFilter extends OncePerRequestFilter {
     
     @Autowired
     UserDetailsImpl UserDetailsServiceImpl;
-
     
-        //Implementación de los métodos abstractos.
+                //Implementación de los métodos abstractos.
     
     @Override
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {

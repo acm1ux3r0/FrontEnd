@@ -15,10 +15,11 @@ public class LoginUsuario {
     
     @NotBlank
     private String nombreUsuario;
+    
     @NotBlank
     private String password;
     
-    //GETTERS & SETTERS 
+                    //GETTERS & SETTERS 
 
     public String getNombreUsuario() {
         return nombreUsuario;

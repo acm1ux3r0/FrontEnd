@@ -44,7 +44,7 @@ public class Usuario {
     @NotNull
     private String password;
     
-    /*Hay que relacionar la tabla Rol con la tabla Usuario; una Relación de "Muchos a Muchos"; en memoria
+    /*Hay que relacionar la tabla Rol con Usuario ===> una Relación de "Muchos a Muchos"; en memoria
         se crea una columna virtual en la q se van a relacionar las mencionadas tablas */
     
     @ManyToMany(fetch = FetchType.EAGER )
@@ -111,8 +111,6 @@ public class Usuario {
 
     public void setRoles(Set<Rol> roles) {
         this.roles = roles;
-    }
-    
-    
+    }    
 
 }
