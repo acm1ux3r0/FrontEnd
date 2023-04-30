@@ -22,7 +22,7 @@ import javax.validation.constraints.NotNull;
  * @author acm1ux3r0
  */
 
-    //ESTA CLASE LO QUE VA HACER ES ACCEDER DIRECTAMENTE A LA DB.
+    //ESTA CLASE LO QUE VA HACER ES ACCEDER DIRECTAMENTE A LA BASE DE DATOS (DB).
 
 @Entity
 public class Usuario {
@@ -45,12 +45,16 @@ public class Usuario {
     private String password;
     
     /*Hay que relacionar la tabla Rol con la tabla Usuario; una Relación de "Muchos a Muchos"; en memoria
-        se crea una columna virtual en la q se van a relacionar las mencionadas tablas */
+        se crea una columna virtual en la que se van a relacionar las mencionadas tablas */
     
     @ManyToMany(fetch = FetchType.EAGER )
-    @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name="usuario_id"), inverseJoinColumns = @JoinColumn(name = "rol_id"))
-     private Set<Rol> roles = new HashSet<>(); /*Se crea una tabla que se llama "usuario_rol" con las columnas 
-        "usuario_id" y "rol_id" */
+    @JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name="usuario_id"),
+              inverseJoinColumns = @JoinColumn(name = "rol_id"))/*Se crea la UNIÓN de DOS tablas que se va a
+                                                                  llamar "usuario_rol":
+                                                                  1°) Una va a tener la columna "usuario_id" 
+                                                                  2°) La otra tabla va a tener la columna 
+                                                                    "rol_id" */
+     private Set<Rol> roles = new HashSet<>(); //Se asignan las caracterísitcas mencionadas arriba.
     
     //<<<<<<<<<<        CONSTRUCTORES       >>>>>>>>>>
 

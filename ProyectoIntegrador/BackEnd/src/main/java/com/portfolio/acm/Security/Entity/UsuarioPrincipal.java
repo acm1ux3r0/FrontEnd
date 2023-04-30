@@ -16,7 +16,7 @@ import org.springframework.security.core.userdetails.UserDetails;
  * @author acm1ux3r0
  */
 
-  //CLASE ENCARGADA DE TENER TODA LA SEGURIDAD
+    //CLASE ENCARGADA DE TENER TODA LA SEGURIDAD y que va implementar de "UserDetails"
 
 public class UsuarioPrincipal implements UserDetails {
 
@@ -27,7 +27,8 @@ public class UsuarioPrincipal implements UserDetails {
     private Collection<? extends GrantedAuthority> authorities;
 
     //CONSTRUCTOR
-    public UsuarioPrincipal(String nombre, String nombreUsuario, String email, String password, Collection<? extends GrantedAuthority> authorities) {
+    public UsuarioPrincipal(String nombre, String nombreUsuario, String email, String password, 
+                            Collection<? extends GrantedAuthority> authorities) {
         this.nombre = nombre;
         this.nombreUsuario = nombreUsuario;
         this.email = email;
@@ -45,6 +46,7 @@ public class UsuarioPrincipal implements UserDetails {
     }
 
     //Creación de Métodos declarados en UserDetails ("Implement all abstract methods")
+    
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return authorities;
@@ -55,11 +57,11 @@ public class UsuarioPrincipal implements UserDetails {
         return password;
     }
 
-    public String getNombre() {
+    public String getNombre() { //Se borra el @Override porque no existe el método.
         return nombre;
     }
 
-    public String getEmail() {
+    public String getEmail() {  //Se borra el @Override porque no existe el método.
         return email;
     }
 

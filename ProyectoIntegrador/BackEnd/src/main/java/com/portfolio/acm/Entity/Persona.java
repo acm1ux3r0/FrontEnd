@@ -19,36 +19,29 @@ import lombok.Setter;
  * @author acm1ux3r0
  */
 
-@Getter @Setter
+        // ENTIDAD --> Repositorio --> Interface --> Service --> Controller
+
+@Getter //Con esta Annotation del Lombok nos que el código sea tan extenso.
+@Setter //Con esta Annotation del Lombok nos que el código sea tan extenso.
 @Entity
 public class Persona {
-    @Id
-    @GeneratedValue (strategy = GenerationType.IDENTITY)
-    private int id;
-    
+
+    @Id //Le indicamos que el primer campo va ser una Primary Key
+    @GeneratedValue(strategy = GenerationType.IDENTITY)//Se va a generar de modo automático y no va a ser necesario asignarle un número.
+    private Long id;
+
     @NotNull
     @Size(min = 1, max = 50, message = "No cumple con la longitud requerida.")
     private String nombre;
-    
+
     @NotNull
     @Size(min = 1, max = 50, message = "No cumple con la longitud requerida.")
     private String apellido;
-    
-    @NotNull
-    private String descripcion;
-    
+
+    // @NotNull
+    //private String descripcion;
     @Size(min = 1, max = 50, message = "No cumple con la longitud requerida.")
     private String img;
-    
-    //<<<<<<<<      Constructores   >>>>>>>>>>>>>
-    public Persona() {
-    }
 
-    public Persona(String nombre, String apellido, String descripcion, String img) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.descripcion = descripcion;
-        this.img = img;
-    }
-    //Forma abreviada de Getters y Setters es colocarlos en forma de @Anotation.
+    //Forma abreviada de Getters y Setters es colocarlos en forma de @Annotation.
 }

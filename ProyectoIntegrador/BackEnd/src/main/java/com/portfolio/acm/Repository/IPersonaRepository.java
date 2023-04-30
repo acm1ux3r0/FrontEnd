@@ -15,8 +15,12 @@ import org.springframework.stereotype.Repository;
  * @author acm1ux3r0
  */
 
+    //  Entidad --> REPOSITORIO --> Interface --> Service --> Controller
+
 @Repository
-public interface IPersonaRepository extends JpaRepository<Persona, Integer> {
+public interface IPersonaRepository extends JpaRepository<Persona, Long> {
+
     public Optional<Persona> findByNombre(String nombre);
+
     public boolean existsByNombre(String nombre);
 }

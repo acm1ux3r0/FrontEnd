@@ -19,11 +19,9 @@ import org.springframework.stereotype.Component;
  * @author acm1ux3r0
  */
 
-
-//<<<<<<<   CLASE PARA CHECAR SI HAY UN TOKEN VÁLIDO.   >>>>>>>>>>
+        //<<<<<<<   CLASE PARA CHECAR SI HAY UN TOKEN VÁLIDO.   >>>>>>>>>>
 
 @Component
-
 public class JwtEntryPoint implements AuthenticationEntryPoint {
 
     // PRIMERO SE REALIZAN LAS CLASES Y DESPUÉS SE IMPLEMENTARÁN LOS MÉTODOS ABSTRACTOS
@@ -31,9 +29,9 @@ public class JwtEntryPoint implements AuthenticationEntryPoint {
 
     //Implementación de los métodos abstractos
     @Override
-    public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException, ServletException {
+    public void commence(HttpServletRequest request, HttpServletResponse response,
+                         AuthenticationException authException) throws IOException, ServletException {
         logger.error("Falló el método commence");
         response.sendError(HttpServletResponse.SC_UNAUTHORIZED);
     }
-
 }

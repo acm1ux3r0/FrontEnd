@@ -14,13 +14,13 @@ import org.springframework.stereotype.Repository;
  * @author acm1ux3r0
  */
 
-
 @Repository
-public interface iUsuarioRepository extends JpaRepository <Usuario, Integer> {
-    
-    Optional<Usuario> findByNombreUsuario(String nombreUsuario);
-    
-    boolean existsByNombreUsuario(String nombreUsuario);
-    boolean existsByEmail(String email);
-    
+public interface iUsuarioRepository extends JpaRepository<Usuario, Integer> {
+
+    Optional<Usuario> findByNombreUsuario(String nombreUsuario);// Buscar por nombre de usuario.
+
+    boolean existsByNombreUsuario(String nombreUsuario); //Verdadero o Falso si EXISTE el nombre del usuario.
+
+    boolean existsByEmail(String email); //Verdadero o Falso si EXISTE el Email.
+
 }

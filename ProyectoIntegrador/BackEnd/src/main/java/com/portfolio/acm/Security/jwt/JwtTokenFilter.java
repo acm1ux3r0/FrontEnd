@@ -23,8 +23,9 @@ import org.springframework.web.filter.OncePerRequestFilter;
  * @author acm1ux3r0
  */
 
- /* Usa la clase del PROVIDER para validar el TOKEN otra vez y se ejecutará cada vez que hagamos algo 
-    (Por Ej. si editamos algo */
+/* Usa la clase del PROVIDER para validar el TOKEN otra vez y se ejecutará cada vez que hagamos algo 
+    (Por Ej. si editamos algo se va ejecutar esta clase para validar que el token esté correctamente
+    y si no lo está va a pedir que hagamos login*/
 
 public class JwtTokenFilter extends OncePerRequestFilter {
 
@@ -32,15 +33,14 @@ public class JwtTokenFilter extends OncePerRequestFilter {
 
     @Autowired
     JwtProvider jwtProvider;
-    
+
     @Autowired
     UserDetailsImpl UserDetailsServiceImpl;
 
-    
-        //Implementación de los métodos abstractos.
-    
+    //Implementación de los métodos abstractos.
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response,
+                                    FilterChain filterChain) throws ServletException, IOException {
         try {
             String token = getToken(request);
             if (token != null && jwtProvider.validateToken(token)) {
@@ -55,12 +55,12 @@ public class JwtTokenFilter extends OncePerRequestFilter {
         }
         filterChain.doFilter(request, response);
     }
-    
-    private String getToken(HttpServletRequest request){
+
+    private String getToken(HttpServletRequest request) {
         String header = request.getHeader("Authorization");
-        if(header != null && header.startsWith("Bearer"))
-                return header.replace("Bearer", "");
+        if (header != null && header.startsWith("Bearer")) {
+            return header.replace("Bearer", "");
+        }
         return null;
     }
-    
 }

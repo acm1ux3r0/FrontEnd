@@ -37,55 +37,60 @@ import org.springframework.web.bind.annotation.RestController;
  * @author acm1ux3r0
  */
 
-//ES EL QUE SE VA A TERMINAR COMUNICANDO CON EL FRONT.
+            //ES EL QUE SE VA A TERMINAR COMUNICANDO CON EL FRONT.
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/auth") //Desde donde lo vamos a llamar.
 @CrossOrigin(origins = "http://localhost:4200")
 
 public class AuthController {
-    
-   // INYECCIONES
+
+    // INYECCIONES
     @Autowired
     PasswordEncoder passwordEncoder;
-    
+
     @Autowired
     AuthenticationManager authenticationManager;
-    
+
     @Autowired
     UsuarioService usuarioService;
-    
+
     @Autowired
     RolService rolService;
-    
+
     @Autowired
     JwtProvider jwtProvider;
-    
+
     //CREAR UN USUARIO NUEVO
     @PostMapping("/nuevo") //Para indicar la ruta.
-    
-    public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario, BindingResult bindingResult) {
+
+    public ResponseEntity<?> nuevo(@Valid @RequestBody NuevoUsuario nuevoUsuario,
+                                    BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return new ResponseEntity(new Mensaje("Email inválido o campo equivocado"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("Email inválido o campo mal puesto"),
+                                        HttpStatus.BAD_REQUEST);
         }
 
         if (usuarioService.existsByNombreUsuario(nuevoUsuario.getNombreUsuario())) {
-            return new ResponseEntity(new Mensaje("Ese nombre de usuario ya existe"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("Ese nombre de usuario ya existe"),
+                                                    HttpStatus.BAD_REQUEST);
         }
 
         if (usuarioService.existsByEmail(nuevoUsuario.getEmail())) {
-            return new ResponseEntity(new Mensaje("Ese email ya existe"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(new Mensaje("Este email ya existe"), HttpStatus.BAD_REQUEST);
         }
 
         Usuario usuario = new Usuario(nuevoUsuario.getNombre(), nuevoUsuario.getNombreUsuario(),
                 nuevoUsuario.getEmail(), passwordEncoder.encode(nuevoUsuario.getPassword()));
 
         Set<Rol> roles = new HashSet<>();
-        roles.add(rolService.getByRolNombre(RolNombre.ROLE_USER).get());
+        roles.add(rolService.getByRolNombre(RolNombre.ROLE_USER).get());/* Por defecto todos van a tener
+                                                                            ROL_USER*/
 
-        if (nuevoUsuario.getRoles().contains("admin")) {
-            roles.add(rolService.getByRolNombre(RolNombre.ROLE_ADMIN).get());
-        }
+        if (nuevoUsuario.getRoles().contains("admin")) 
+            roles.add(rolService.getByRolNombre(RolNombre.ROLE_ADMIN).get()); /* A menos que contenga "admin",
+                                                                                  y ahí se le asiganrá el
+                                                                                  ROL_ADMIN*/        
         usuario.setRoles(roles);
         usuarioService.save(usuario);
 
@@ -93,10 +98,10 @@ public class AuthController {
     }
 
     @PostMapping("/login") //La ruta (Endpoint) al que se accederá
-    public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUsuario loginUsuario, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return new ResponseEntity(new Mensaje("Campos mal puestos"), HttpStatus.BAD_REQUEST);
-        }
+    public ResponseEntity<JwtDto> login(@Valid @RequestBody LoginUsuario loginUsuario,
+                                        BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) 
+            return new ResponseEntity(new Mensaje("Campos mal puestos"), HttpStatus.BAD_REQUEST);        
 
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(loginUsuario.getNombreUsuario(),
@@ -112,5 +117,4 @@ public class AuthController {
 
         return new ResponseEntity(jwtDto, HttpStatus.OK);
     }
-
 }

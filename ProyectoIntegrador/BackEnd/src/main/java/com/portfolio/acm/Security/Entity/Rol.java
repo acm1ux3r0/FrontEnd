@@ -18,7 +18,6 @@ import javax.validation.constraints.NotNull;
  * @author acm1ux3r0
  */
 
-
 @Entity
 public class Rol {
     
@@ -27,7 +26,8 @@ public class Rol {
     private int id;
     
     @NotNull
-    @Enumerated(EnumType.STRING) //Annotation que define los valores que ingresamos.
+    @Enumerated(EnumType.STRING) /*Annotation que define los valores que ingresamos.
+                                    En este caso debe ser alfanumérico. */
     private RolNombre rolNombre;
     
     //<<<<<<<<<<<   CONSTRUCTOR >>>>>>>>>>>>

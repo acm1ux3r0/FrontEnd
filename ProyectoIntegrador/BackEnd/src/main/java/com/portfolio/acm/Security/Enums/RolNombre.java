@@ -9,7 +9,6 @@ package com.portfolio.acm.Security.Enums;
  * @author acm1ux3r0
  */
 
-
 public enum RolNombre {
     ROLE_ADMIN, ROLE_USER
 }
