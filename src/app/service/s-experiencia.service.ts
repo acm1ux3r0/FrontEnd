@@ -10,18 +10,19 @@ export class SExperienciaService {
   expURL: 'http://localhost:8080/explab/' | undefined
 
   constructor(private httpClient:  HttpClient) {}
+
     public lista(): Observable<Experiencia[]>{
       return this.httpClient.get<Experiencia[]>(this.expURL + 'lista');
     }
 
     public detail(id: number): Observable<Experiencia>{
-      return this.httpClient.get<Experiencia>(this.expURL + `detail/${id}`);
+      return this.httpClient.get<Experiencia>(this.expURL + `detail/${id}`); /* Van comillas de tipo  `` porque le vamos a pasar un valor por el @PathVariable */
     }
 
     //Método para guardar.
 
     public save(experiencia: Experiencia): Observable<any>{
-      return this.httpClient.post<any>(this.expURL + `create`, experiencia);
+      return this.httpClient.post<any>(this.expURL + `create`, experiencia); 
     }
 
     public update(id: number, experiencia: Experiencia): Observable<any>{
