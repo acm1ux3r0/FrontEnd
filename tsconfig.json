@@ -5,8 +5,8 @@
     "baseUrl": "./",
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
-    "strictNullChecks": false,//para corregir el error de "expLab: Experiencia = null;"
     "strict": true,
+    "strictNullChecks": false,//para corregir el error de "expLab: Experiencia = null;"    
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
