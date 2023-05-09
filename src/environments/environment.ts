@@ -4,6 +4,7 @@
 
 export const environment = {
 
+    autor: "",
     production: false,
     URL: 'http://localhost:8080/'
 }

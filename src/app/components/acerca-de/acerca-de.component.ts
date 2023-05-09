@@ -8,12 +8,12 @@ import { PersonaService } from 'src/app/service/persona.service';
   styleUrls: ['./acerca-de.component.css']
 })
 export class AcercaDeComponent implements OnInit {
-  persona: persona = new persona("", "", "");
+  persona: persona = new persona("Antonio", "Lucero", "../../../assets/perfilPhoto.jpg");
 
   constructor(public personaService: PersonaService){ }
 
   ngOnInit(): void{
-    this.personaService.getPersona().subscribe(data => {this.persona = data})
+    this.personaService.getPersona().subscribe(data => {this.persona = data});
   }
   
 }

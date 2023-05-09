@@ -10,6 +10,7 @@ import { EditeducacionComponent } from './components/educacion/editeducacion.com
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'login', component: LoginComponent},
+  //{path: 'personas/traer/perfil', component: LoginComponent},
   {path: 'nuevaexp',component: NewExperienciaComponent},
   {path: 'editexp/:id',component: EditExperienciaComponent},
   {path: 'nuevaedu', component: NeweducacionComponent},

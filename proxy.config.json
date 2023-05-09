@@ -1,0 +1,11 @@
+{
+    "/educacion/*": {
+        "target": "http://localhost:4200",
+        "secure": "false"
+    },
+    
+    "/personas/*": {
+        "target": "http://localhost:4200",
+        "secure": "false"
+    }
+}   

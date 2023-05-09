@@ -22,14 +22,20 @@ export class LoginComponent implements OnInit {
   constructor(private tokenService: TokenService, private authService: AuthService, private router:Router){}
 
   ngOnInit():void {
+    console.log('comprobar si usuario ya inicio sesión');
     if(this.tokenService.getToken()){
+      console.log('Usuario ya inicio sesión');
       this.isLogged = true;
       this.isLogginFail= false;
       this.roles = this.tokenService.getAuthorities();
+    }else{
+      console.log('No hay sesión');
     }
   }
 
   onLogin(): void{
+    console.log('login');
+    //this.router.navigate(['']);
     this.loginUsuario = new LoginUsuario(this.nombreUsuario, this.password); 
     this.authService.login(this.loginUsuario).subscribe(data=>{
         this.isLogged=true;
