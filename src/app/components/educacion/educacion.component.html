@@ -5,6 +5,7 @@
             Agregar Educación   
         </button>
     </div>
+
     <div class="col lg 1"> </div>
     
     <div class="col-lg-11">
@@ -12,8 +13,14 @@
             
             <tbody>
                 <tr *ngFor="let Educacion of educacion">
-                    <td> <h2> {{Educacion.nombreE}} </h2> </td>
-                    <td> {{Educacion.descripcionE}}</td>
+                    <td>
+                        <h2>
+                            {{Educacion.nombreE}}
+                        </h2>
+                    </td>
+                    <td>
+                        {{Educacion.descripcionE}}
+                    </td>
                     <td *ngIf="isLogged"> <!--*ngIf para que solamente se vea cuando esté logueado -->
                         <button class="btn btn-primary" routerLink="/editedu/{{Educacion.id}}"> 
                             <i class= "bi bi-pencil-square"> </i> EDITAR 

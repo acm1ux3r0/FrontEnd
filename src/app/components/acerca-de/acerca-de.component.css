@@ -41,8 +41,8 @@ div{
 
                                 /* ============ Etiqueta developer ============== */
 
-#developer{
-    font-size: 125%;
-    font-weight: bold;
-    margin-top: auto;
-}
+                                #developer{
+                                    font-size: 125%;
+                                    font-weight: bold;
+                                    margin-top: auto;
+                                }

@@ -8,11 +8,13 @@ import { TokenService } from 'src/app/service/token.service';
   templateUrl: './educacion.component.html',
   styleUrls: ['./educacion.component.css']
 })
+
 export class EducacionComponent implements OnInit {
   educacion: Educacion[] = [];
 
   constructor(private educacionS: EducacionService, private tokenService: TokenService) { }
-    isLogged = false;
+    
+  isLogged = false;
 
   ngOnInit(): void {    
     this.cargarEducacion();
