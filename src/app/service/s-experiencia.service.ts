@@ -7,8 +7,12 @@ import { Experiencia } from '../model/experiencia';
   providedIn: 'root'
 })
 export class SExperienciaService {
-  //expURL: 'http://localhost:8080/explab/';
-  expURL: '/explab/';
+  /* La siguiente expURL viene del CONTROLLER "CExperiencia.java" del BACKEND "4200":
+        @RequestMapping("explab")
+        //@CrossOrigin(origins = "http://localhost:4200")
+        @CrossOrigin(origins = "*")*/
+  expURL: 'http://localhost:8080/explab/';
+  //expURL: '/explab/';
 
   constructor(private httpClient:  HttpClient) {}
 
@@ -17,13 +21,14 @@ export class SExperienciaService {
     }
 
     public detail(id: number): Observable<Experiencia>{
-      return this.httpClient.get<Experiencia>(this.expURL + `detail/${id}`); /* Van comillas de tipo  `` porque le vamos a pasar un valor por el @PathVariable */
+      return this.httpClient.get<Experiencia>(this.expURL + `detail/${id}`); 
+                                                              /* Van comillas de tipo ( `` )  porque le vamos a pasar un valor por el @PathVariable */
     }
 
     //Método para guardar.
 
     public save(experiencia: Experiencia): Observable<any>{
-      return this.httpClient.post<any>(this.expURL + `create`, experiencia); 
+      return this.httpClient.post<any>(this.expURL + 'create', experiencia); 
     }
 
     public update(id: number, experiencia: Experiencia): Observable<any>{

@@ -8,16 +8,19 @@ import { TokenService } from 'src/app/service/token.service';
   templateUrl: './experiencia.component.html',
   styleUrls: ['./experiencia.component.css']
 })
+
 export class ExperienciaComponent implements OnInit {
   expe: Experiencia[] = [];
 
-  constructor(private sExperiencia: SExperienciaService, private tokenService: TokenService) {}
+  constructor(private sExperiencia: SExperienciaService, private tokenService: TokenService) {
+    /* Se empieza a validar lo que se pueda hacer según esté o no logueado.*/
+  }
   
   isLogged = false;
 
   ngOnInit(): void {
     this.cargarExperiencia();
-    if (this.tokenService.getToken()){
+    if (this.tokenService.getToken()){ //Con esto verificamos si estamos o no logueados.
       this.isLogged = true;
     }  else {
       this.isLogged = false;
@@ -35,7 +38,7 @@ export class ExperienciaComponent implements OnInit {
     if(id != undefined){
       this.sExperiencia.delete(id).subscribe(
         data => {
-          this.cargarExperiencia();
+          this.cargarExperiencia();/* Para que refresque la página después de eliminar */
         }, err => {
           alert("No se pudo eliminar la experiencia");
         }
