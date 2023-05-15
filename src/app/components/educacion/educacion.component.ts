@@ -18,10 +18,11 @@ export class EducacionComponent implements OnInit {
 
   ngOnInit(): void {    
     this.cargarEducacion();
+    //Validación del TOKEN
     if(this.tokenService.getToken()){
-      this.isLogged= true;
+      this.isLogged= true; // Si estoy logueado se va a poder EDITAR.
     } else {
-      this.isLogged= false;
+      this.isLogged= false;// Si NO estoy logueado no va a mostrar nada.
     }
   }
 
@@ -29,14 +30,16 @@ export class EducacionComponent implements OnInit {
     this.educacionS.lista().subscribe(
       data => {
         this.educacion = data;
+          /* Este cargarEducacion() se tiene que cargar ni bien inicie el componente: para ello llamamos este método en ngOnInit() mediante el  this.cargarEducacion() */
       }
     )
   }
 
   delete(id?: number) {
     if(id != undefined){
-      this.educacionS.delete(id).subscribe(data =>{
-          this.cargarEducacion();
+      this.educacionS.delete(id).subscribe(
+        data =>{
+          this.cargarEducacion(); 
         }, err => {
           alert ("No se pudo eliminar");
         }
