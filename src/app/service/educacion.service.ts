@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class EducacionService {
   URL = 'http://localhost:8080/educacion/'; 
-                                              /*Tomamos esta URL comprobando el @RequestMapping("/  educacion") del CONTROLLER CEucacion.java */
+                                              /*Tomamos esta URL comprobando el @RequestMapping("/  educacion") del CONTROLLER CEducacion.java */
   //URL = '/educacion/';
 
   constructor(private httpClient: HttpClient) { }
