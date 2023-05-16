@@ -24,7 +24,7 @@ ngOnInit(): void {
 onCreate(): void {
   const educacion = new Educacion(this.nombreE, this.descripcionE);
   this.educacionS.save(educacion).subscribe(
-      data =>{
+      data => {
         alert("La educación fue añadida correctamente");
         this.router.navigate(['']);
       }, err => {
