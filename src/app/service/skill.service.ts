@@ -10,8 +10,14 @@ import { environment } from 'src/environments/environment';
 export class SkillService {
   URL = environment.URL + 'skill/';
   //URL = 'http://localhost:8080/skill/';
-  
+    
   constructor(private httpClient: HttpClient) { }
+    /* Se procede a desarrollar los métodos que hicimos en el BackEnd:
+        -Lista
+        -Detalle
+        -Guardar
+        -Actualizar
+        -Borrar */
 
   public lista(): Observable<Skill[]>{
     return this.httpClient.get<Skill[]>(this.URL + 'lista');
