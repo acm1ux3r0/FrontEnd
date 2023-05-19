@@ -21,7 +21,7 @@ export class HysComponent {
   ];
 
   constructor(private skillS: SkillService, private tokenService: TokenService) { }
-                                                    /* TokenService es para validar si estoy o no logueado */
+                                                    /*  TokenService es para validar si estoy o no       logueado */
   isLogged = false;
   
   /* ngOnInit es lo que se va a cargar en cuanto inicie este componente */
