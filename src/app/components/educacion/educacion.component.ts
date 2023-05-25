@@ -30,7 +30,7 @@ export class EducacionComponent implements OnInit {
     this.educacionS.lista().subscribe(
       data => {
         this.educacion = data;
-          /* Este cargarEducacion() se tiene que cargar ni bien inicie el componente: para ello llamamos este método en ngOnInit() mediante el  this.cargarEducacion() */
+          /* Este cargarEducacion() se tiene que cargar en cuanto inicie el componente: para ello llamamos este método en ngOnInit() mediante el  this.cargarEducacion() */
       }
     )
   }
