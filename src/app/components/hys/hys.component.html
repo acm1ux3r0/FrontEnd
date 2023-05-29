@@ -1,10 +1,12 @@
 <div class="row">
     <h1>Hard & Soft skills</h1>
     <div class="col-lg-2"> <!-- Sin esto el botón será ancho (de punta a punta)-->
-        <button type="button" routerLink="/newskill" class="btn btn-success" *ngIf="isLogged">
+        <button type="button" class="btn btn-success" routerLink="/newskill" *ngIf="isLogged">
             Agregar Skill
         </button>
     </div>
+
+    <div class="col lg 1"> </div>
 
     <div class="text-center col-sm-4 col-md-4 col-lg-4 circulo" *ngFor="let skill of skill">
         <circle-progress 
@@ -29,7 +31,7 @@
 
         <div>
             <td *ngIf="isLogged"> <!--*ngIf para que solamente se vea cuando esté logueado -->
-                <button class="btn btn-primary" routerLink="/editskill/{{skill.id}}"> 
+                <button class="btn btn-primary" routerLink="/editskill/{{skill.id}}">> 
                     <i class= "bi bi-pencil-square"> </i>
                 </button>
             </td>
@@ -138,7 +140,7 @@
         <circle-progress
             [percent]="70"
             [radius]="100"
-            [imageSrc]=" '../assets/js.png'"
+            [imageSrc]=" '../assets/js.png'" 
             [showImage]="true"
             [imageHeight]="90"
             [imageWidth]="90"

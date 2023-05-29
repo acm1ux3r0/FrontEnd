@@ -25,11 +25,11 @@ onCreate(): void {
   const educacion = new Educacion(this.nombreE, this.descripcionE);
   this.educacionS.save(educacion).subscribe(
       data => {
-        alert("La educación fue añadida correctamente");
+        alert("La educación fue añadida correctamente.");
         this.router.navigate(['']);
       }, err => {
-        alert("falló");
-        this.router.navigate([]);
+        alert("Falla en el añadido de la Educación.");
+        this.router.navigate(['']);
       }
     )
   }

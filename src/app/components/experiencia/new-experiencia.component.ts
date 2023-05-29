@@ -10,7 +10,6 @@ import { SExperienciaService } from 'src/app/service/s-experiencia.service';
 })
 
 export class NewExperienciaComponent implements OnInit {
-
   nombreE: string= '';
   descripcionE: string= '';
 
@@ -23,7 +22,7 @@ export class NewExperienciaComponent implements OnInit {
     const expe = new Experiencia(this.nombreE, this.descripcionE);
     this.SExperiencia.save(expe).subscribe(
       data => {
-        alert("Experiencia añadida");
+        alert("La Experiencia fue añadida correctamente.");
         this.router.navigate(['']);
     }, err => {
       alert("Falla en el añadido de la experiencia");
