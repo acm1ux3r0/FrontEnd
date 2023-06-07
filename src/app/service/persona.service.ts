@@ -22,7 +22,7 @@ export class PersonaService {
 
   public getPersona(): Observable<persona>{
                       /*Angular usa el "Observable" para hacer las peticiones asíncronas */
-    return this.http.get<persona>(this.URL + 'traer/perfil')
-                                            /* del Persona Controller.java: @GetMapping("/personas/traer/perfil") */
+    return this.http.get<persona>(this.URL + 'traer/perfil') 
+                                           /* del Persona Controller.java: @GetMapping("/personas/traer/perfil") */
   }
 }
