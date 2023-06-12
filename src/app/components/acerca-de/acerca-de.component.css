@@ -1,6 +1,7 @@
 .row{
     padding: 20px;
 }
+
 div{
     background-color: #6a9bcf;
     text-align: center;
@@ -8,14 +9,14 @@ div{
 
                                 /* ============ Estilo de foto de perfil ============== */
 
-@media (min-width: 576px){
+@media (min-width: 570px){
     #fotodeperfil{
         position: absolute;
         width: 15%;
         border-radius: 100%;
         box-shadow: 4px 4px 4px blue;
-        left: 2%;
-        top: 550px;
+        left: 1%;
+        top: 540px;
     }
 }
 
@@ -36,13 +37,13 @@ div{
 #nombre{
     font-weight: bold;
     margin-top: auto;
-    font-size: 135%;     
+    font-size: 145%;     
 }
 
                                 /* ============ Etiqueta developer ============== */
 
 #developer{
-    font-size: 115%;
+    font-size: 105%;
     font-weight: bold;
     margin-top: auto;
 }

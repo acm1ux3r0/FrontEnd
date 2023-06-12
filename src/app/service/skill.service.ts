@@ -7,6 +7,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
+
 export class SkillService {
   URL = environment.URL + 'skill/';
   //URL = 'http://localhost:8080/skill/';

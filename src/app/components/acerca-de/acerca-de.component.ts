@@ -11,7 +11,7 @@ import { PersonaService } from 'src/app/service/persona.service';
 
 export class AcercaDeComponent implements OnInit {
   //persona: persona = new persona("","","");
-  persona: persona = new persona("Antonio", "Lucero", "../../../assets/perfilPhoto.jpg");
+  persona: persona = new persona("Antonio R.", "Lucero", "../../../assets/perfilPhoto.jpg");
 
   constructor(public personaService: PersonaService){ }
 

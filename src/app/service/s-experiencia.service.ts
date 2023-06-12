@@ -13,7 +13,7 @@ export class SExperienciaService {
         //@CrossOrigin(origins = "http://localhost:4200")
         @CrossOrigin(origins = "*")*/
   //expURL: 'http://localhost:8080/explab/';
-  URL = environment.URL + 'explab/';
+  URL = environment.URL + 'explab/'; 
 
   constructor(private httpClient:  HttpClient) {}
 
@@ -22,7 +22,7 @@ export class SExperienciaService {
     }
 
     public detail(id: number): Observable<Experiencia>{
-      return this.httpClient.get<Experiencia>(this.URL + `detail/${id}`); 
+      return this.httpClient.get<Experiencia>(this.URL + `detail/${id}`);   
                                                               /* Van comillas de tipo ( `` )  porque le vamos a pasar un valor por el @PathVariable */
     }
 

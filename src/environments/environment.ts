@@ -7,7 +7,7 @@ export const environment = {
     autor: "",
     production: false,
     URL: 'http://localhost:8080/'
-}
+};
 
 /*
    * For easier debugging in development mode, you can import the following file
