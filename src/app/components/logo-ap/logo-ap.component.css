@@ -5,7 +5,7 @@
 }
 
 .redes{
-    margin-right: 0.8em;
+    margin-right: 0.5em;
 }
 
 #logoAP{
@@ -23,7 +23,7 @@ img{
                 /*============ Vista para smartphone ==========*/
 
 @media(max-width:575px){
-    .containerContainer{
+    .container{
         flex-direction: column;    
     }
     
@@ -36,5 +36,5 @@ img{
 
 
 .redes img{
-    margin: 0.3em;
+    margin: 0.2em;
 }

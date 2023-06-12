@@ -8,6 +8,7 @@ import { SkillService } from 'src/app/service/skill.service';
   templateUrl: './edit-skill.component.html',
   styleUrls: ['./edit-skill.component.css']
 })
+
 export class EditSkillComponent implements OnInit {
   skill: Skill = null;
 
@@ -22,7 +23,7 @@ export class EditSkillComponent implements OnInit {
       data => {
         this.skill = data;
       }, err => {
-        alert("Error al editar o modificar");
+        alert("Error al editar Skill");
         this.router.navigate(['']);//Para que nos lleve nuevamente a la página principal.
       }
     )
@@ -34,7 +35,7 @@ export class EditSkillComponent implements OnInit {
       data => {
         this.router.navigate(['']);//Para que nos lleve nuevamente a la página principal.
       }, err => {
-        alert("Error al editar o modificar la skill");
+        alert("Error al modificar skill");
         this.router.navigate(['']);//Para que nos lleve nuevamente a la página principal.
       }
     )

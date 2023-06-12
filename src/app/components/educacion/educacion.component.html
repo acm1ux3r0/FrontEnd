@@ -2,6 +2,10 @@
     <h1>Educación.</h1> 
     <div class="col-lg-2">
         <button type="button" class="btn btn-success" routerLink="/nuevaedu" *ngIf="isLogged">
+            <!-- 
+                "routerLink=/nuevaedu": para que al presionar el botón, redireccione a "/nuevaedu". 
+                "*ngIf="isLogged"": condición para que el botón se muestre solamente si estoy logueado.
+            -->
             Agregar Educación   
         </button>
     </div>

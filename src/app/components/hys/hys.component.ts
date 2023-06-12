@@ -50,7 +50,7 @@ export class HysComponent {
         data => {
           this.cargarSkills(); //Que vuelva a recargar la lista.
         }, err => {
-          alert("No se pudo eliminar la skill");
+          alert("No se pudo eliminar la Skill");
         }
       )
     }
